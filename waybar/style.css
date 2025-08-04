@@ -1,0 +1,230 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 0;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#waybar {
+    background: rgba(30, 30, 46, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+#custom-launcher,
+#cpu,
+#memory,
+#pulseaudio,
+#bluetooth,
+#clock,
+#custom-power {
+    padding: 3px 9px;
+    margin: 0 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#custom-launcher:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#clock:hover,
+#custom-power:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px 0 rgba(31, 38, 135, 0.4);
+}
+
+#custom-launcher {
+    color: #cba6f7;
+    font-size: 17px;
+    padding: 0 18px 0 12px;
+}
+
+#custom-launcher:hover {
+    background: rgba(203, 166, 247, 0.2);
+}
+
+#workspaces {
+    background: transparent;
+    padding: 3px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    min-width: 6px;
+    min-height: 1px;
+    color: transparent;
+    background: rgba(127, 132, 156, 0.4);
+    border-radius: 50%;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0;
+}
+
+#workspaces button.active {
+    min-width: 28px;
+    min-height: 1px;
+    background: linear-gradient(90deg, #ba89fa, #c674ec);
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(203, 166, 247, 0.2);
+}
+
+#workspaces button.urgent {
+    min-width: 12px;
+    min-height: 1px;
+    background: #f38ba8;
+    animation: urgent-pulse 1s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(243, 139, 168, 0.6);
+}
+
+#workspaces button:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.7);
+    min-width: 6px;
+    min-height: 1px;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
+}
+
+#workspaces button.active:hover {
+    background: linear-gradient(90deg, #cd89fa, #d874ec);
+    box-shadow: 0 3px 12px rgba(203, 166, 247, 0.2);
+    min-width: 28px;
+}
+
+@keyframes urgent-pulse {
+
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#cpu {
+    color: #fab387;
+}
+
+#cpu:hover {
+    background: rgba(250, 179, 135, 0.2);
+}
+
+#memory {
+    color: #a6e3a1;
+}
+
+#memory:hover {
+    background: rgba(166, 227, 161, 0.2);
+}
+
+#pulseaudio {
+    color: #f9e2af;
+}
+
+#pulseaudio:hover {
+    background: rgba(249, 226, 175, 0.2);
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+    opacity: 0.7;
+}
+
+#bluetooth {
+    color: #89b4fa;
+}
+
+#bluetooth:hover {
+    background: rgba(137, 180, 250, 0.2);
+}
+
+#bluetooth.connected {
+    color: #94e2d5;
+}
+
+#bluetooth.off {
+    color: #6c7086;
+    opacity: 0.7;
+}
+
+#clock {
+    color: #cba6f7;
+    font-weight: bold;
+}
+
+#clock:hover {
+    background: rgba(203, 166, 247, 0.2);
+}
+
+#custom-power {
+    color: #f38ba8;
+    font-size: 14px;
+    padding: 0 18px 0 15px;
+}
+
+#custom-power:hover {
+    color: #ffffff;
+    background: rgba(243, 139, 168, 0.3);
+    border: 1px solid rgba(243, 139, 168, 0.5);
+}
+
+tooltip {
+    background: rgba(30, 30, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+tooltip label {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#cpu.warning {
+    animation: pulse 2s infinite;
+    color: #fab387;
+}
+
+#cpu.critical {
+    animation: pulse 1s infinite;
+    color: #f38ba8;
+}
+
+#memory.warning {
+    animation: pulse 2s infinite;
+    color: #f9e2af;
+}
+
+#memory.critical {
+    animation: pulse 1s infinite;
+    color: #f38ba8;
+}

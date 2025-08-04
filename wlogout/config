@@ -1,0 +1,32 @@
+[wlogout]
+# Configuración de diseño
+buttons_per_row = 3
+column_spacing = 50
+row_spacing = 50
+margin_top = 50
+margin_bottom = 50
+margin_left = 50
+margin_right = 50
+
+# Comportamiento
+hide_cancel = false
+exclusive = true
+protocol = layer-shell
+
+# Estilo
+css_file = style.css
+show_labels = true
+
+# Efectos
+fade-in = 0.3
+effect-blur = true
+effect-greyscale = false
+effect-vignette = false
+screenshots = true
+
+# Iconos predeterminados (si no se especifican en el CSS)
+default_icon = /usr/share/wlogout/icons/
+icon_size = 64
+
+# Keybinds globales
+cancel_keybind = Escape

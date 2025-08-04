@@ -1,0 +1,120 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 26,
+    "spacing": 2,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": ["custom/launcher"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "cpu", "memory", "bluetooth", "clock", "custom/power"],
+    
+    "custom/launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wofi -S drun",
+        "on-click-right": "wofi -S run"
+    },
+    
+    "hyprland/workspaces": {
+        "format": "",
+        "height": 3,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-click": "activate",
+        "all-outputs": true
+    },
+    
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 2,
+        "tooltip-format": "CPU: {usage}%\nCarga: {load}",
+        "on-click": "warp-terminal -e btop"
+    },
+    
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 5,
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G",
+        "on-click": "warp-terminal -e btop"
+    },
+    
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": " {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "helvum",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "tooltip": true,
+        "tooltip-format": "{desc} - {volume}%"
+    },
+    
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": " off",
+        "format-off": " off",
+        "format-on": " on",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "format-device-preference": ["input-gaming", "input-keyboard", "input-mouse"],
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} conectado(s)",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} conectado(s)\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+    
+    "clock": {
+        "locale": "es_UY.UTF-8",
+        "format": "{:%H:%M  %a, %d}",
+        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<span size='xx-large'>{calendar}</span>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#FFFFFFFF'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>S{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            },
+            "actions": {
+                "on-click-right": "mode",
+                "on-click-forward": "tz_up",
+                "on-click-backward": "tz_down",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout",
+        "on-click-right": "wlogout"
+    }
+}

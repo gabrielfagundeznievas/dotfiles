@@ -1,0 +1,30 @@
+# Dimensiones y posición
+width=600
+height=400
+location=center
+show=drun
+prompt=Buscar
+filter_rate=100
+allow_markup=true
+no_actions=true
+halign=fill
+orientation=vertical
+content_halign=fill
+insensitive=true
+allow_images=true
+image_size=24
+gtk_dark=true
+dynamic_lines=false
+
+# Comportamiento
+matching=fuzzy
+sort_order=alphabetical
+hide_scroll=true
+normal_window=false
+
+# Terminal a usar para aplicaciones de terminal
+term=kitty
+
+# Caché y rendimiento
+cache_file=/dev/null
+run-always_parse_args=true
